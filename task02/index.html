@@ -7,10 +7,29 @@
     <body>
         <script>
             let inputprice = prompt() // s = 100 m = 200 l = 300 x = 600 xl = 2000 xxl = 7000
-            inputprice = parseInt(inputprice)
-            let inputmounth = prompt()
-            inputmounth = parseInt(inputmounth)
-            alert(inputprice*inputmounth)
+            let inputmonth = prompt()
+            inputmonth = parseInt(inputmonth)
+            let s = 100;
+            let m = 200;
+            let l = 300;
+            let x = 600;
+            let xl = 2000;
+            let xxl = 7000;
+            if (inputprice === "s"){
+                alert(s * inputmonth)
+            } else if (inputprice === "m"){
+                alert(m * inputmonth)
+            } else if (inputprice === "l"){
+                alert(l * inputmonth)
+            } else if (inputprice === "x"){
+                alert(x * inputmonth)
+            } else if (inputprice === "xl"){
+                alert(xl * inputmonth)
+            } else if (inputprice === "xxl"){
+                alert(xxl * inputmonth)
+            } else if (inputprice !== "s" && inputprice !== "m" && inputprice !== "l" && inputprice !== "x" && inputprice !== "xl" && inputprice !== "xxl"){
+                alert("Вы ввели некорректное значение")
+            }
 
         </script>
     </body>
