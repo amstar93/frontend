@@ -4,20 +4,45 @@
     </head>
     <body>
         <h1>калькулятор</h1>
-        <input class="first_number">
+        <input class = "first_number">
         <input class = "second_number">
-        <button>отправить</button>
+        <button class = "plus">+</button>
+        <button class = "minus">-</button>
+        <button class = "multiply">*</button>
+        <button class = "divide">/</button>
         <div></div>
         <script>
         let inputFirst = document.querySelector(".first_number")
         let inputSecond = document.querySelector(".second_number")
-        let button = document.querySelector("button")
+        let button_plus = document.querySelector(".plus")
+        let button_minus = document.querySelector(".minus")
+        let button_multiply = document.querySelector(".multiply")
+        let button_divide = document.querySelector(".divide")
         let div = document.querySelector("div")
-        function getDataFromInput (){
-               div.innerHTML = inputFirst.value + inputSecond.value
+        function getDataFromInputPlus (){
+            inputFirst.value = parseInt(inputFirst.value)
+            inputSecond.value = parseInt(inputSecond.value)
+            div.innerHTML = inputFirst.value + inputSecond.value
         }
-        button.onclick = getDataFromInput
-        
+        button_plus.onclick = getDataFromInputPlus
+        function getDataFromInputMinus(){
+            inputFirst.value = parseInt(inputFirst.value)
+            inputSecond.value = parseInt(inputSecond.value)
+            div.innerHTML = inputFirst.value - inputSecond.value
+        }
+        button_minus.onclick = getDataFromInputMinus
+        function getDataFromInputMultiply (){
+            inputFirst.value = parseInt(inputFirst.value)
+            inputSecond.value = parseInt(inputSecond.value)
+            div.innerHTML = inputFirst.value * inputSecond.value
+        }
+        button_multiply.onclick = getDataFromInputMultiply
+        function getDataFromInputDivide (){
+            inputFirst.value = parseInt(inputFirst.value)
+            inputSecond.value = parseInt(inputSecond.value)
+            div.innerHTML = inputFirst.value / inputSecond.value
+        }
+        button_divide.onclick = getDataFromInputDivide
         </script>
     </body>
 </html>
