@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>калькулятор</h1>
+        <input class="first_number">
+        <input class = "second_number">
+        <button>отправить</button>
+        <div></div>
+        <script>
+        let inputFirst = document.querySelector(".first_number")
+        let inputSecond = document.querySelector(".second_number")
+        let button = document.querySelector("button")
+        let div = document.querySelector("div")
+        function getDataFromInput (){
+               div.innerHTML = inputFirst.value + inputSecond.value
+        }
+        button.onclick = getDataFromInput
+        
+        </script>
+    </body>
+</html>
