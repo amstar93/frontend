@@ -14,30 +14,44 @@
     <body>
         <h1>калькулятор</h1>
         <div>
-            <button class = "plus">+</button>
-            <button class = "minus">-</button>
-            <button class = "multiply">*</button>
-            <button class = "divide">/</button>
             <button class = "one">1</button>
             <button class = "two">2</button>
             <button class = "three">3</button>
+            <button class = "plus">+</button>
             <button class = "four">4</button>
             <button class = "five">5</button>
             <button class = "six">6</button>
+            <button class = "minus">-</button>
             <button class = "seven">7</button>
             <button class = "eight">8</button>
             <button class = "nine">9</button>
+            <button class = "multiply">*</button>
             <button class = "zero">0</button>
             <button class = "point">.</button>
             <button class = "equals">=</button>
+            <button class = "divide">/</button>
         </div>
         <div class = "buffer"></div>
         <div class="output">0</div>
         <script>
              let firstArgument;
              let buttonOne = document.querySelector(".one")
-             let output = document.querySelector(".output")
+             let buttonTwo = document.querySelector(".two")
+             let buttonThree = document.querySelector(".three")
+             let buttonFour = document.querySelector(".four")
+             let buttonFive = document.querySelector(".five")
+             let buttonSix = document.querySelector(".six")
+             let buttonSeven = document.querySelector(".seven")
+             let buttonEight = document.querySelector(".eight")
+             let buttonNine = document.querySelector(".nine")
+             let buttonZero = document.querySelector(".zero")
              let buttonPlus = document.querySelector(".plus")
+             let buttonMinus = document.querySelector(".minus")
+             let buttonMultiply = document.querySelector(".multiply")
+             let buttonDivide = document.querySelector(".divide")
+             let buttonPoint = document.querySelector(".point")
+             let buttonEquals = document.querySelector(".equals")
+             let output = document.querySelector(".output")
              let buffer = document.querySelector(".buffer")
              function buttonOneHandler () {
                  if (output.innerHTML === '0'){
@@ -45,6 +59,76 @@
                  } else {
                      output.innerHTML = output.innerHTML + 1
                  }   
+             }
+             buttonOne.onclick = buttonOneHandler
+             function buttonTwoHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 2
+                 } else {
+                     output.innerHTML = output.innerHTML + 2
+                 }   
+             }
+             buttonTwo.onclick = buttonTwoHandler
+             function buttonThreeHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 3
+                 } else {
+                     output.innerHTML = output.innerHTML + 3
+                 }   
+             }
+             buttonThree.onclick = buttonThreeHandler
+             function buttonFourHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 4
+                 } else {
+                     output.innerHTML = output.innerHTML + 4
+                 }   
+             }
+             buttonFour.onclick = buttonFourHandler
+             function buttonFiveHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 5
+                 } else {
+                     output.innerHTML = output.innerHTML + 5
+                 }   
+             }
+             buttonFive.onclick = buttonFiveHandler
+             function buttonSixHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 6
+                 } else {
+                     output.innerHTML = output.innerHTML + 6
+                 }   
+             }
+             buttonSix.onclick = buttonSixHandler
+             function buttonSevenHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 7
+                 } else {
+                     output.innerHTML = output.innerHTML + 7
+                 }   
+             }
+             buttonSeven.onclick = buttonSevenHandler
+             function buttonEightHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 8
+                 } else {
+                     output.innerHTML = output.innerHTML + 8
+                 }   
+             }
+             buttonEight.onclick = buttonEightHandler
+             function buttonNineHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 9
+                 } else {
+                     output.innerHTML = output.innerHTML + 9
+                 }   
+             }
+             buttonNine.onclick = buttonNineHandler
+             function buttonZeroHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 0
+                 }
              }
              buttonOne.onclick = buttonOneHandler
              function buttonPlusHandler (){
@@ -56,11 +140,45 @@
                      buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " + "
                      firstArgument = firstArgument + parseInt(output.innerHTML)
                      output.innerHTML = firstArgument
-                 }
-                 
-                 
+                 }   
              }
              buttonPlus.onclick = buttonPlusHandler
+             function buttonMinusHandler (){
+                 if (firstArgument === undefined){
+                     firstArgument = parseInt(output.innerHTML)
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " - "
+                     output.innerHTML = ""
+                 } else {
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " - "
+                     firstArgument = firstArgument - parseInt(output.innerHTML)
+                     output.innerHTML = firstArgument
+                 }   
+             }
+             buttonMinus.onclick = buttonMinusHandler
+             function buttonMultiplyHandler (){
+                 if (firstArgument === undefined){
+                     firstArgument = parseInt(output.innerHTML)
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " * "
+                     output.innerHTML = ""
+                 } else {
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " * "
+                     firstArgument = firstArgument * parseInt(output.innerHTML)
+                     output.innerHTML = firstArgument
+                 }   
+             }
+             buttonMultiply.onclick = buttonMultiplyHandler
+             function buttonDivideHandler (){
+                 if (firstArgument === undefined){
+                     firstArgument = parseInt(output.innerHTML)
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " / "
+                     output.innerHTML = ""
+                 } else {
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " / "
+                     firstArgument = firstArgument / parseInt(output.innerHTML)
+                     output.innerHTML = firstArgument
+                 }   
+             }
+             buttonDivide.onclick = buttonDivideHandler
         </script>
     </body>
 </html>
