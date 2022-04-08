@@ -1,67 +1,66 @@
 <html>
     <head>
-
+        <style>
+            div {
+                width: 400px;
+            }
+            button {
+                width: 80px;
+                height: 80px;
+                margin: 5px;
+            }
+        </style>
     </head>
     <body>
         <h1>калькулятор</h1>
-        <input class = "first_number">
-        <input class = "second_number">
-        <button class = "plus">+</button>
-        <button class = "minus">-</button>
-        <button class = "multiply">*</button>
-        <button class = "divide">/</button>
-        <button class = "one">1</button>
-        <button class = "two">2</button>
-        <button class = "three">3</button>
-        <button class = "four">4</button>
-        <button class = "five">5</button>
-        <button class = "six">6</button>
-        <button class = "seven">7</button>
-        <button class = "eight">8</button>
-        <button class = "nine">9</button>
-        <button class = "zero">0</button>
-        <button class = "point">.</button>
-        <button class = "allclean">AC</button>
-        <button class = "percent">%</button>
-        <button class = "leftparenthesis">(</button>
-        <button class = "rightparenthesis">)</button>
-        <button class = "equals">=</button>
-        <div></div>
+        <div>
+            <button class = "plus">+</button>
+            <button class = "minus">-</button>
+            <button class = "multiply">*</button>
+            <button class = "divide">/</button>
+            <button class = "one">1</button>
+            <button class = "two">2</button>
+            <button class = "three">3</button>
+            <button class = "four">4</button>
+            <button class = "five">5</button>
+            <button class = "six">6</button>
+            <button class = "seven">7</button>
+            <button class = "eight">8</button>
+            <button class = "nine">9</button>
+            <button class = "zero">0</button>
+            <button class = "point">.</button>
+            <button class = "equals">=</button>
+        </div>
+        <div class = "buffer"></div>
+        <div class="output">0</div>
         <script>
-        let inputFirst = document.querySelector(".first_number")
-        let inputSecond = document.querySelector(".second_number")
-        let button_one = document.querySelector(".one")
-        button_one.onclick = 1
-        
-        let button_plus = document.querySelector(".plus")
-        let button_minus = document.querySelector(".minus")
-        let button_multiply = document.querySelector(".multiply")
-        let button_divide = document.querySelector(".divide")
-        let div = document.querySelector("div")
-        function getDataFromInputPlus (){
-            let a = parseInt(inputFirst.value)
-            let b = parseInt(inputSecond.value)
-            div.innerHTML = a + b
-        }
-        button_plus.onclick = getDataFromInputPlus
-        function getDataFromInputMinus(){
-            let a = parseInt(inputFirst.value)
-            let b = parseInt(inputSecond.value)
-            div.innerHTML = a - b
-        }
-        button_minus.onclick = getDataFromInputMinus
-        function getDataFromInputMultiply (){
-            let a = parseInt(inputFirst.value)
-            let b = parseInt(inputSecond.value)
-            div.innerHTML = a * b
-        }
-        button_multiply.onclick = getDataFromInputMultiply
-        function getDataFromInputDivide (){
-            let a = parseInt(inputFirst.value)
-            let b = parseInt(inputSecond.value)
-            div.innerHTML = a / b
-        }
-        button_divide.onclick = getDataFromInputDivide
+             let firstArgument;
+             let buttonOne = document.querySelector(".one")
+             let output = document.querySelector(".output")
+             let buttonPlus = document.querySelector(".plus")
+             let buffer = document.querySelector(".buffer")
+             function buttonOneHandler () {
+                 if (output.innerHTML === '0'){
+                     output.innerHTML = 1
+                 } else {
+                     output.innerHTML = output.innerHTML + 1
+                 }   
+             }
+             buttonOne.onclick = buttonOneHandler
+             function buttonPlusHandler (){
+                 if (firstArgument === undefined){
+                     firstArgument = parseInt(output.innerHTML)
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " + "
+                     output.innerHTML = ""
+                 } else {
+                     buffer.innerHTML = buffer.innerHTML + "   " + output.innerHTML + " + "
+                     firstArgument = firstArgument + parseInt(output.innerHTML)
+                     output.innerHTML = firstArgument
+                 }
+                 
+                 
+             }
+             buttonPlus.onclick = buttonPlusHandler
         </script>
     </body>
 </html>
