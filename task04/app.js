@@ -1,7 +1,7 @@
 let word = "сосна";
 let input = document.querySelector("input")
 let buttonSubmit = document.querySelector("button")
-function ClickButtonSubmit () {
+export function ClickButtonSubmit () {
     let resultColors = checkWords(word, input.value)
     console.log(resultColors)
     let resultsElement = document.querySelector(".results")
@@ -13,7 +13,7 @@ function ClickButtonSubmit () {
 
 buttonSubmit.onclick = ClickButtonSubmit
 
-function checkWords(initialWord, userWord){
+export function checkWords(initialWord, userWord){
     let colors = []
     if (initialWord === userWord){
         console.log("ok")
@@ -38,7 +38,7 @@ function checkWords(initialWord, userWord){
     return colors;
 }
 
-function CheckLetInWord(letter, word){
+export function CheckLetInWord(letter, word){
     // let letter = "п"
     // let word = "пират"
     for (let i = 0; i < 5; i++){
