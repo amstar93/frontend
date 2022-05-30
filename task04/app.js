@@ -1,58 +1,38 @@
+import {checkWords} from './utilshelpers.js';
+import {checkIsWordCorrect} from "./utilshelpers.js";
+
 let word = "сосна";
-let input = document.querySelector("input")
-let buttonSubmit = document.querySelector("button")
-export function ClickButtonSubmit () {
-    let resultColors = checkWords(word, input.value)
+let timeOutId;
+
+let buttonGame = document.querySelector(".game")
+let inputWord = document.querySelector(".inputWord")
+let buttonSubmit = document.querySelector(".submit")
+let resultsElement = document.querySelector(".results")
+
+function ClickButtonSubmit () {
+    // clearTimeout (timeOutId)
+    let resultColors = checkWords(word, inputWord.value)
     console.log(resultColors)
-    let resultsElement = document.querySelector(".results")
     for (let i = 0; i < 5; i++){
         resultsElement.innerHTML += "<button class=btn style='background-color: " + resultColors[i] + "'>" + resultColors[i] + "</button>"
     }
     resultsElement.innerHTML += "<br>"  
-} 
+}
+
+function ClickButtonGame () {
+    buttonGame.style.display = "none"
+    inputWord.style.display = "inline"
+    buttonSubmit.style.display = "inline"
+    timeOutId = setTimeout (GameOver, 4000)
+}
+function GameOver () {
+    alert("Игра окончилась")
+    buttonGame.style.display = "inline"
+    inputWord.style.display = "none"
+    buttonSubmit.style.display = "none"
+    resultsElement.innerHTML = ""
+}
+
 
 buttonSubmit.onclick = ClickButtonSubmit
-
-export function checkWords(initialWord, userWord){
-    let colors = []
-    if (initialWord === userWord){
-        console.log("ok")
-    } else {
-        console.log("no")
-    }
-    console.log(userWord)
-    for (let i = 0; i < 5; i++){
-        console.log(initialWord[i])
-        console.log(userWord[i])
-        if (initialWord[i] === userWord[i]){
-            console.log("green")
-            colors.push("green")
-        } else  if (CheckLetInWord(userWord[i], initialWord)){
-            console.log("yellow")
-            colors.push("yellow")
-        } else{
-            console.log("grey")
-            colors.push("grey")
-        }
-    }
-    return colors;
-}
-
-export function CheckLetInWord(letter, word){
-    // let letter = "п"
-    // let word = "пират"
-    for (let i = 0; i < 5; i++){
-        console.log(word[i])
-        if (letter === word[i]){
-            return true
-        } else {
-            
-        }
-    } return false
-}
-
-let output = CheckLetInWord("g", "pirat")
-console.log(output)
-
-let res = checkWords("сосна", "сосан")
-console.log(res)
+buttonGame.onclick = ClickButtonGame
