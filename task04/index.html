@@ -7,16 +7,20 @@
                 height : 100px;
                 margin : 10px;
             }
+            .inputWord {
+                display: none
+            }
+            .submit {
+                display: none
+            }
         </style>
     </head>
     <body>
-        <input value="сосан">
-        <button>submit</button>
+        <button class = "game">Начать игру</button>
+        <input class = "inputWord" value="сосан">
+        <button class = "submit">submit</button>
         <div class="results"></div>
         <script type="module" src="app.js">
-            import {ClickButtonSubmit} from './app.js';
-            import {checkWords} from './app.js';
-            import {CheckLetInWord} from './app.js';
         </script>
     </body>
 </html>
